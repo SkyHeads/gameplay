@@ -9,6 +9,7 @@ import { StatusBar } from 'expo-status-bar';
 
 import { Background } from './src/components/Background';
 import { SignIn } from './src/screens/SignIn';
+import { Home } from './src/screens/Home';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +27,7 @@ export default function App() {
   return (
     <Background>
       <StatusBar style='light'/>
-      <SignIn />
+      <Home />
     </Background>
   );
 }
