@@ -1,15 +1,16 @@
+import 'react-native-gesture-handler';
+
 import React from 'react';
 
+import { StatusBar } from 'expo-status-bar';
 import { Inter_400Regular, Inter_500Medium} from '@expo-google-fonts/inter';
 import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhani';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
-import { StatusBar } from 'expo-status-bar';
+import { Routes } from './src/routes';
 
 import { Background } from './src/components/Background';
-import { SignIn } from './src/screens/SignIn';
-import { Home } from './src/screens/Home';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,7 +28,7 @@ export default function App() {
   return (
     <Background>
       <StatusBar style='light'/>
-      <Home />
+      <Routes />
     </Background>
   );
 }
