@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { Avatar } from '../Avatar';
 
@@ -9,11 +10,11 @@ export const Profile: React.FC = () => {
   return (
     <View style={styles.container}>
 
-      <TouchableOpacity
+      <RectButton
         onPress={() => console.log('Clicou')}
       >
         <Avatar urlImage="https://github.com/skyheads.png" />
-      </TouchableOpacity>
+      </RectButton>
 
       <View>
         <View style={styles.user}>
