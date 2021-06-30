@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { 
   View,
   Text, 
@@ -11,6 +12,13 @@ import { ButtonIcon } from '../../components/ButtonIcon';
 import { styles } from './styles';
 
 export const SignIn: React.FC = () => {
+
+  const navigation = useNavigation();
+
+  const handleSignIn = useCallback(() => {
+    navigation.navigate('Home');
+  }, []);  
+
   return (
     <Background>
       <View style={styles.container}>
@@ -34,7 +42,7 @@ export const SignIn: React.FC = () => {
 
           <ButtonIcon 
             title="Entrar com Discord" 
-            activeOpacity={0.7}
+            onPress={handleSignIn}
           />
         </View>
       </View>
