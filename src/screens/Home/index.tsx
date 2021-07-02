@@ -6,6 +6,7 @@ import {
 import { Background } from '../../components/Background';
 import { ButtonAdd } from '../../components/ButtonAdd';
 import { CategorySelect } from '../../components/CategorySelect';
+import { ListHeader } from '../../components/ListHeader';
 import { Profile } from '../../components/Profile';
 
 import { styles } from './styles';
@@ -24,12 +25,15 @@ export const Home: React.FC = () => {
         <ButtonAdd />
       </View>
       
-      <View>
-        <CategorySelect
-          categorySelected={category}
-          setCategory={handleCategorySelect} 
-        />
-      </View>
+      <CategorySelect
+        categorySelected={category}
+        setCategory={handleCategorySelect} 
+      />
+
+      <ListHeader 
+        title="Partidas agendadas"
+        subTitle="Total 6"
+      />
     </Background>
   );
 }
