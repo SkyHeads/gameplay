@@ -3,6 +3,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 
 import { StatusBar } from 'expo-status-bar';
+
 import { Inter_400Regular, Inter_500Medium} from '@expo-google-fonts/inter';
 import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhani';
 import { useFonts } from 'expo-font';
@@ -27,7 +28,11 @@ export default function App() {
 
   return (
     <Background>
-      <StatusBar style='light'/>
+      <StatusBar 
+        style='light'
+        backgroundColor='transparent'
+        translucent
+      />
       <Routes />
     </Background>
   );

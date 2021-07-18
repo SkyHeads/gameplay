@@ -70,7 +70,7 @@ export const Home: React.FC = () => {
       <CategorySelect
         categorySelected={category}
         setCategory={handleCategorySelect}
-        hasCheckBox={true} 
+        hasCheckBox={false} 
       />
 
       <ListHeader 
