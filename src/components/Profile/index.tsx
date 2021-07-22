@@ -11,7 +11,7 @@ export const Profile: React.FC = () => {
     <View style={styles.container}>
 
       <RectButton
-        onPress={() => console.log('Clicou')}
+        onPress={() => console.log('Profile Button')}
       >
         <Avatar urlImage="https://github.com/skyheads.png" />
       </RectButton>

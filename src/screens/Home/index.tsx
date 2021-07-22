@@ -68,11 +68,15 @@ export const Home: React.FC = () => {
     navigation.navigate('AppointmentDetail');
   }, []);
 
+  const handleAppointmentCreate = useCallback(() => {
+    navigation.navigate('AppointmentCreate');
+  }, []);
+
   return (
     <Background>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
       
       <CategorySelect

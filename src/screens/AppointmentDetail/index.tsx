@@ -86,7 +86,7 @@ export const AppointmentDetail: React.FC = () => {
       <View style={styles.buttonFooter}>
         <ButtonIcon
           title="Entrar na partida"
-          onPress={() => console.log('Button Icon AppointmentDetail')}
+          onPress={() => console.log('AppointmentDetail Button')}
         />
       </View>
     </Background>

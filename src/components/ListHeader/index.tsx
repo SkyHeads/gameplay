@@ -6,7 +6,7 @@ import { theme } from '../../global/styles/theme';
 
 type Props = {
   title: string;
-  subTitle: string;
+  subTitle?: string;
 }
 
 export const ListHeader: React.FC<Props> = ({ title, subTitle }) => {
