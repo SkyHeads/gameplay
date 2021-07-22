@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 export const styles = StyleSheet.create({
@@ -16,5 +16,5 @@ export const styles = StyleSheet.create({
   matches: {
     marginTop: 24,
     marginLeft: 24,
-  }
+  },
 });

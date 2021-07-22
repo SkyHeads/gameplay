@@ -9,7 +9,7 @@ import { Header } from '../../components/Header';
 import { ListHeader } from '../../components/ListHeader';
 import { ListDivider } from '../../components/ListDivider';
 import { Member } from '../../components/Member';
-import { ButtonIcon } from '../../components/ButtonIcon'
+import { ButtonIcon } from '../../components/ButtonIcon';
 
 import BannerImg from '../../assets/banner.png';
 import { styles } from './styles';
@@ -17,19 +17,19 @@ import { theme } from '../../global/styles/theme';
 
 export const AppointmentDetail: React.FC = () => {
   const members = [
-    { 
+    {
       id: '1',
       username: 'Bruno',
       avatar_url: 'https://github.com/SkyHeads.png',
-      status: 'online'
+      status: 'online',
     },
-    { 
+    {
       id: '2',
       username: 'Bruno',
       avatar_url: 'https://github.com/SkyHeads.png',
-      status: 'offline'
-    }
-  ]
+      status: 'offline',
+    },
+  ];
 
   return (
     <Background>
@@ -37,48 +37,26 @@ export const AppointmentDetail: React.FC = () => {
         title="Detalhes"
         action={
           <BorderlessButton>
-            <Fontisto
-              name="share"
-              size={24}
-              color={theme.colors.primary}
-            />
+            <Fontisto name="share" size={24} color={theme.colors.primary} />
           </BorderlessButton>
         }
       />
 
-      <ImageBackground
-        source={BannerImg}
-        style={styles.banner}
-      > 
-        <View
-          style={styles.bannerContent}
-        >
-          <Text
-            style={styles.title}
-          >
-            Lendários
-          </Text>
-          <Text
-            style={styles.subTitle}
-          >
+      <ImageBackground source={BannerImg} style={styles.banner}>
+        <View style={styles.bannerContent}>
+          <Text style={styles.title}>Lendários</Text>
+          <Text style={styles.subTitle}>
             É hoje que vamos chegar ao challenger sem perder uma partida de md10
           </Text>
         </View>
       </ImageBackground>
 
-      <ListHeader
-        title="Jogadores"
-        subTitle="Total de 3"
-      />
+      <ListHeader title="Jogadores" subTitle="Total de 3" />
 
       <FlatList
         data={members}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <Member
-            data={item}
-          />
-        )}
+        renderItem={({ item }) => <Member data={item} />}
         ItemSeparatorComponent={() => <ListDivider />}
         style={styles.members}
       />
@@ -91,4 +69,4 @@ export const AppointmentDetail: React.FC = () => {
       </View>
     </Background>
   );
-}
+};

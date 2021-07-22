@@ -6,7 +6,7 @@ import { theme } from '../../global/styles/theme';
 
 type Props = {
   children: ReactNode;
-}
+};
 
 export const Background: React.FC<Props> = ({ children }) => {
   const { secondary80, secondary100 } = theme.colors;
@@ -15,7 +15,7 @@ export const Background: React.FC<Props> = ({ children }) => {
       style={styles.container}
       colors={[secondary80, secondary100]}
     >
-      { children }
+      {children}
     </LinearGradient>
   );
 };

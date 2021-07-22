@@ -18,7 +18,7 @@ export type GuildProps = {
   name: string;
   icon: string | null;
   owner: boolean;
-}
+};
 
 export type AppointmentProps = {
   id: string;
@@ -26,16 +26,16 @@ export type AppointmentProps = {
   category: string;
   date: string;
   description: string;
-}
+};
 
 type Props = RectButtonProps & {
-  data: AppointmentProps
-}
+  data: AppointmentProps;
+};
 
 export const Appointments: React.FC<Props> = ({ data, ...rest }) => {
   const [category] = categories.filter(item => item.id === data.category);
   const { owner } = data.guild;
-  const { primary, on, secondary50, secondary70 } = theme.colors;
+  const { primary, on } = theme.colors;
 
   return (
     <RectButton {...rest}>
@@ -51,25 +51,19 @@ export const Appointments: React.FC<Props> = ({ data, ...rest }) => {
           <View style={styles.footer}>
             <View style={styles.dateInfo}>
               <CalendarSvg />
-              <Text style={styles.date}>
-                { data.date }
-              </Text>
+              <Text style={styles.date}>{data.date}</Text>
             </View>
 
             <View style={styles.playersInfo}>
-              <PlayerSvg fill={ owner ? primary : on}/>
+              <PlayerSvg fill={owner ? primary : on} />
 
-              <Text style={[
-                styles.player, 
-                { color: owner ? primary : on }
-              ]}>
-                { owner ? 'Anfitrião' : 'Visitante' }
+              <Text style={[styles.player, { color: owner ? primary : on }]}>
+                {owner ? 'Anfitrião' : 'Visitante'}
               </Text>
-            </View> 
+            </View>
           </View>
         </View>
-
       </View>
     </RectButton>
   );
-}
+};

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.title500,
     color: theme.colors.highlight,
     fontSize: 13,
-    marginLeft: 9
+    marginLeft: 9,
   },
   bulletStatus: {
     width: 8,

@@ -4,8 +4,11 @@ import React from 'react';
 
 import { StatusBar } from 'expo-status-bar';
 
-import { Inter_400Regular, Inter_500Medium} from '@expo-google-fonts/inter';
-import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhani';
+import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
+import {
+  Rajdhani_500Medium,
+  Rajdhani_700Bold,
+} from '@expo-google-fonts/rajdhani';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
@@ -18,21 +21,16 @@ export default function App() {
     Inter_400Regular,
     Inter_500Medium,
     Rajdhani_500Medium,
-    Rajdhani_700Bold
+    Rajdhani_700Bold,
   });
 
-  if(!fontsLoaded){
-    return <AppLoading />
+  if (!fontsLoaded) {
+    return <AppLoading />;
   }
-
 
   return (
     <Background>
-      <StatusBar 
-        style='light'
-        backgroundColor='transparent'
-        translucent
-      />
+      <StatusBar style="light" backgroundColor="transparent" translucent />
       <Routes />
     </Background>
   );

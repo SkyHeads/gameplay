@@ -1,9 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { 
-  View,
-  Text,
-  FlatList
-} from 'react-native';
+import { View, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { Appointments } from '../../components/Appointments';
@@ -28,11 +24,12 @@ export const Home: React.FC = () => {
         id: '1',
         name: 'Lendários',
         icon: null,
-        owner: true
+        owner: true,
       },
       category: '1',
       date: '02/07 às 20:40h',
-      description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
+      description:
+        'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
     },
     {
       id: '2',
@@ -40,11 +37,12 @@ export const Home: React.FC = () => {
         id: '2',
         name: 'Yeah, boy',
         icon: null,
-        owner: false
+        owner: false,
       },
       category: '3',
       date: '02/07 às 20:40h',
-      description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
+      description:
+        'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
     },
     {
       id: '3',
@@ -52,25 +50,29 @@ export const Home: React.FC = () => {
         id: '3',
         name: 'Rumo ao topo',
         icon: null,
-        owner: true
+        owner: true,
       },
       category: '1',
       date: '02/07 às 20:40h',
-      description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
-    }
-  ]
+      description:
+        'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
+    },
+  ];
 
-  const handleCategorySelect = useCallback((categoryId: string) => {
-    categoryId === category ? setCategory('') : setCategory(categoryId);
-  }, []);
+  const handleCategorySelect = useCallback(
+    (categoryId: string) => {
+      categoryId === category ? setCategory('') : setCategory(categoryId);
+    },
+    [category],
+  );
 
   const handleAppointmentDetail = useCallback(() => {
     navigation.navigate('AppointmentDetail');
-  }, []);
+  }, [navigation]);
 
   const handleAppointmentCreate = useCallback(() => {
     navigation.navigate('AppointmentCreate');
-  }, []);
+  }, [navigation]);
 
   return (
     <Background>
@@ -78,26 +80,20 @@ export const Home: React.FC = () => {
         <Profile />
         <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
-      
+
       <CategorySelect
         categorySelected={category}
         setCategory={handleCategorySelect}
-        hasCheckBox={false} 
+        hasCheckBox={false}
       />
 
-      <ListHeader 
-        title="Partidas agendadas"
-        subTitle="Total 6"
-      />
+      <ListHeader title="Partidas agendadas" subTitle="Total 6" />
 
       <FlatList
         data={appointments}
         keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <Appointments 
-            data={item}
-            onPress={handleAppointmentDetail}
-          />
+        renderItem={({ item }) => (
+          <Appointments data={item} onPress={handleAppointmentDetail} />
         )}
         style={styles.matches}
         showsVerticalScrollIndicator={false}
@@ -106,4 +102,4 @@ export const Home: React.FC = () => {
       />
     </Background>
   );
-}
+};

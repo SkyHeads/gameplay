@@ -11,20 +11,18 @@ import { AppointmentCreate } from '../screens/AppointmentCreate';
 
 const { Navigator, Screen } = createStackNavigator();
 
-export const AuthRoutes: React.FC = () => {
-  return (
-    <Navigator
-      headerMode="none"
-      screenOptions={{
-        cardStyle: {
-          backgroundColor: theme.colors.secondary100,
-        },
-      }}
-    >
-      <Screen name="SigIn" component={SignIn} />
-      <Screen name="Home" component={Home} />
-      <Screen name="AppointmentDetail" component={AppointmentDetail} />
-      <Screen name="AppointmentCreate" component={AppointmentCreate} />
-    </Navigator>
-  );
-};
+export const AuthRoutes: React.FC = () => (
+  <Navigator
+    headerMode="none"
+    screenOptions={{
+      cardStyle: {
+        backgroundColor: theme.colors.secondary100,
+      },
+    }}
+  >
+    <Screen name="SigIn" component={SignIn} />
+    <Screen name="Home" component={Home} />
+    <Screen name="AppointmentDetail" component={AppointmentDetail} />
+    <Screen name="AppointmentCreate" component={AppointmentCreate} />
+  </Navigator>
+);

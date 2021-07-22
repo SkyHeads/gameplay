@@ -10,40 +10,36 @@ export type MemberProps = {
   username: string;
   avatar_url: string;
   status: string;
-}
+};
 
 type Props = {
-  data: MemberProps
-}
+  data: MemberProps;
+};
 
 export const Member: React.FC<Props> = ({ data }) => {
-  const {on, primary} = theme.colors;
+  const { on, primary } = theme.colors;
   const isOnline = data.status === 'online';
 
   return (
     <View style={styles.container}>
-      <Avatar
-        urlImage={data.avatar_url}
-      />
+      <Avatar urlImage={data.avatar_url} />
 
       <View>
-        <Text style={styles.title}>
-          {data.username}
-        </Text>
+        <Text style={styles.title}>{data.username}</Text>
 
         <View style={styles.status}>
           <View
-            style={[styles.bulletStatus,
-              { backgroundColor: isOnline ? on : primary }
+            style={[
+              styles.bulletStatus,
+              { backgroundColor: isOnline ? on : primary },
             ]}
           />
 
           <Text style={styles.nameStatus}>
-            { isOnline ? 'Disponível' : 'Ocupado' }
+            {isOnline ? 'Disponível' : 'Ocupado'}
           </Text>
         </View>
       </View>
     </View>
   );
-}
-
+};

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
@@ -33,13 +33,13 @@ export const styles = StyleSheet.create({
   selectBodyLabel: {
     fontFamily: theme.fonts.title700,
     fontSize: 18,
-    color: theme.colors.heading
+    color: theme.colors.heading,
   },
   field: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 30
+    marginTop: 30,
   },
   column: {
     flexDirection: 'row',
@@ -49,15 +49,15 @@ export const styles = StyleSheet.create({
     marginRight: 4,
     fontSize: 18,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.highlight
+    color: theme.colors.highlight,
   },
   caracteresLimit: {
     fontFamily: theme.fonts.text400,
     fontSize: 13,
-    color: theme.colors.heading
+    color: theme.colors.heading,
   },
   footer: {
     marginVertical: 20,
-    marginBottom: 56
+    marginBottom: 56,
   },
 });

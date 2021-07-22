@@ -7,17 +7,13 @@ import { styles } from './styles';
 
 type Props = RectButtonProps & {
   title: string;
-}
+};
 
-export const ButtonIcon: React.FC<Props> = ({ title, ...rest }) => {
-  return (
-    <RectButton style={styles.container}  {...rest}>
-      <View style={styles.iconWrapper}>
-        <Image source={DiscordImg} style={styles.icon}/>
-      </View>
-      <Text style={styles.title}>
-        { title }
-      </Text>
-    </RectButton>
-  );
-}
+export const ButtonIcon: React.FC<Props> = ({ title, ...rest }) => (
+  <RectButton style={styles.container} {...rest}>
+    <View style={styles.iconWrapper}>
+      <Image source={DiscordImg} style={styles.icon} />
+    </View>
+    <Text style={styles.title}>{title}</Text>
+  </RectButton>
+);

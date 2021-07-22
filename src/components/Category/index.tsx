@@ -13,14 +13,14 @@ type Props = RectButtonProps & {
   icon: React.FC<SvgProps>;
   checked?: boolean;
   hasCheckBox?: boolean;
-}
+};
 
-export const Category: React.FC<Props> = ({ 
-  title, 
-  icon: Icon, 
+export const Category: React.FC<Props> = ({
+  title,
+  icon: Icon,
   checked = false,
-  hasCheckBox = false, 
-  ...rest 
+  hasCheckBox = false,
+  ...rest
 }) => {
   const { secondary40, secondary50, secondary70, secondary85 } = theme.colors;
 
@@ -30,24 +30,18 @@ export const Category: React.FC<Props> = ({
         style={styles.container}
         colors={[secondary50, secondary70]}
       >
-        <LinearGradient 
+        <LinearGradient
           style={[styles.content, { opacity: checked ? 1 : 0.5 }]}
-          colors={[ checked ? secondary85 : secondary50, secondary40]}
-        > 
-          {
-            hasCheckBox && 
-            <View 
-              style={checked ? styles.checked : styles.check} 
-            />
-          }
+          colors={[checked ? secondary85 : secondary50, secondary40]}
+        >
+          {hasCheckBox && (
+            <View style={checked ? styles.checked : styles.check} />
+          )}
           <Icon width={48} height={48} />
 
-          <Text style={styles.title}>
-            { title }
-          </Text>
+          <Text style={styles.title}>{title}</Text>
         </LinearGradient>
       </LinearGradient>
     </RectButton>
   );
-}
-
+};
