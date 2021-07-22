@@ -6,6 +6,7 @@ import { Header } from '../../components/Header';
 import { ListHeader } from '../../components/ListHeader';
 import { CategorySelect } from '../../components/CategorySelect';
 import { GuildIcon } from '../../components/GuildIcon';
+import { SmallInput } from '../../components/SmallInput';
 
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
@@ -55,6 +56,7 @@ export const AppointmentCreate: React.FC = () => {
             />
           </View>
         </RectButton>
+        <SmallInput />
       </View>
     </Background>
   );
