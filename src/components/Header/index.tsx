@@ -20,7 +20,7 @@ export const Header: React.FC<Props> = ({ title, action }) => {
 
   const handleGoBack = useCallback(() => {
     navigation.goBack();
-  }, []);
+  }, [navigation]);
 
   return (
     <LinearGradient
