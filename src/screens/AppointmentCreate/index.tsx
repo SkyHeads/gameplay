@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   View,
   Text,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
 
 import { RectButton } from 'react-native-gesture-handler';
@@ -18,12 +19,30 @@ import { GuildIcon } from '../../components/GuildIcon';
 import { SmallInput } from '../../components/SmallInput';
 import { TextArea } from '../../components/TextArea';
 import { Button } from '../../components/Button';
+import { ModalView } from '../../components/ModalView';
+import { Guilds } from '../Guilds';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
+import { GuildProps } from '../../components/Guild';
 
 export const AppointmentCreate: React.FC = () => {
   const [category, setCategory] = useState('');
+  const [openGuildsModal, setOpenGuildsModal] = useState(false);
+  const [guild, setGuild] = useState<GuildProps>({} as GuildProps);
+
+  const handleOpenGuilds = useCallback(() => {
+    setOpenGuildsModal(true);
+  }, []);
+
+  const handleCloseGuilds = useCallback(() => {
+    setOpenGuildsModal(false);
+  }, []);
+
+  const handleGuildSelect = useCallback((guildSelect: GuildProps) => {
+    setGuild(guildSelect);
+    setOpenGuildsModal(false);
+  }, []);
 
   return (
     <KeyboardAvoidingView
@@ -45,15 +64,12 @@ export const AppointmentCreate: React.FC = () => {
           </View>
 
           <View style={styles.form}>
-            <RectButton>
+            <RectButton onPress={handleOpenGuilds}>
               <View style={styles.select}>
-                {
-                  // <View style={styles.image} />
-                  <GuildIcon />
-                }
+                {guild.icon ? <GuildIcon /> : <View style={styles.image} />}
                 <View style={styles.selectBody}>
                   <Text style={styles.selectBodyLabel}>
-                    Selecione um servidor
+                    {guild.name ? guild.name : 'Selecione um servidor'}
                   </Text>
                 </View>
 
@@ -102,6 +118,25 @@ export const AppointmentCreate: React.FC = () => {
             </View>
           </View>
         </ScrollView>
+
+        <ModalView visible={openGuildsModal}>
+          <TouchableOpacity
+            style={{
+              position: 'absolute',
+              left: 378,
+              top: 10,
+            }}
+            onPress={handleCloseGuilds}
+          >
+            <Feather
+              name="x-circle"
+              size={24}
+              color={theme.colors.secondary30}
+            />
+          </TouchableOpacity>
+
+          <Guilds handleGuildSelected={handleGuildSelect} />
+        </ModalView>
       </Background>
     </KeyboardAvoidingView>
   );
