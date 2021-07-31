@@ -23,6 +23,30 @@ export const Guilds: React.FC<Props> = ({ handleGuildSelected }) => {
       icon: 'image.png',
       owner: false,
     },
+    {
+      id: '3',
+      name: 'Galera do game',
+      icon: 'image.png',
+      owner: false,
+    },
+    {
+      id: '4',
+      name: 'Galera do game',
+      icon: 'image.png',
+      owner: false,
+    },
+    {
+      id: '5',
+      name: 'Galera do game',
+      icon: 'image.png',
+      owner: false,
+    },
+    {
+      id: '6',
+      name: 'Galera do game',
+      icon: 'image.png',
+      owner: false,
+    },
   ];
 
   return (
@@ -36,6 +60,8 @@ export const Guilds: React.FC<Props> = ({ handleGuildSelected }) => {
         ItemSeparatorComponent={() => <ListDivider />}
         showsVerticalScrollIndicator={false}
         style={styles.guilds}
+        contentContainerStyle={{ paddingBottom: 69, paddingTop: 104 }}
+        ListHeaderComponent={() => <ListDivider isCentered />}
       />
     </View>
   );
