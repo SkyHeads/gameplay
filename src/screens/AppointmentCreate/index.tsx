@@ -44,6 +44,10 @@ export const AppointmentCreate: React.FC = () => {
     setOpenGuildsModal(false);
   }, []);
 
+  const handleCategorySelect = useCallback((categoryId: string) => {
+    setCategory(categoryId);
+  }, []);
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -58,7 +62,7 @@ export const AppointmentCreate: React.FC = () => {
           <View style={{ marginTop: 14 }}>
             <CategorySelect
               hasCheckBox
-              setCategory={setCategory}
+              setCategory={handleCategorySelect}
               categorySelected={category}
             />
           </View>
