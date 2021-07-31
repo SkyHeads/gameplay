@@ -9,7 +9,7 @@ type Props = ModalProps & {
 };
 
 export const ModalView: React.FC<Props> = ({ children, ...rest }) => (
-  <Modal transparent animationType="slide" {...rest}>
+  <Modal transparent animationType="slide" statusBarTranslucent {...rest}>
     <View style={styles.overlay}>
       <View style={styles.container}>
         <Background>
