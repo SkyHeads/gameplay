@@ -29,6 +29,12 @@ export const AppointmentDetail: React.FC = () => {
       avatar_url: 'https://github.com/SkyHeads.png',
       status: 'offline',
     },
+    {
+      id: '3',
+      username: 'Bruno',
+      avatar_url: 'https://github.com/SkyHeads.png',
+      status: 'offline',
+    },
   ];
 
   return (
@@ -59,6 +65,7 @@ export const AppointmentDetail: React.FC = () => {
         renderItem={({ item }) => <Member data={item} />}
         ItemSeparatorComponent={() => <ListDivider />}
         style={styles.members}
+        contentContainerStyle={{ paddingBottom: 15 }}
       />
 
       <View style={styles.buttonFooter}>
