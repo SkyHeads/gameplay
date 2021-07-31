@@ -83,7 +83,9 @@ export const AppointmentCreate: React.FC = () => {
 
             <View style={styles.field}>
               <View>
-                <Text style={styles.selectBodyLabel}>Dia e Mês</Text>
+                <Text style={[styles.selectBodyLabel, { marginBottom: 12 }]}>
+                  Dia e Mês
+                </Text>
                 <View style={styles.column}>
                   <SmallInput maxLength={2} />
                   <Text style={styles.divider}>/</Text>
@@ -92,7 +94,9 @@ export const AppointmentCreate: React.FC = () => {
               </View>
 
               <View>
-                <Text style={styles.selectBodyLabel}>Hora e minuto</Text>
+                <Text style={[styles.selectBodyLabel, { marginBottom: 12 }]}>
+                  Hora e minuto
+                </Text>
                 <View style={styles.column}>
                   <SmallInput maxLength={2} />
                   <Text style={styles.divider}>:</Text>
