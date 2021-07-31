@@ -12,13 +12,7 @@ import { styles } from './styles';
 
 import { GuildIcon } from '../GuildIcon';
 import { theme } from '../../global/styles/theme';
-
-export type GuildProps = {
-  id: string;
-  name: string;
-  icon: string | null;
-  owner: boolean;
-};
+import { GuildProps } from '../Guild';
 
 export type AppointmentProps = {
   id: string;
