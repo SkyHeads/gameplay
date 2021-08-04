@@ -10,9 +10,13 @@ import { ListDivider } from '../../components/ListDivider';
 import { ListHeader } from '../../components/ListHeader';
 import { Profile } from '../../components/Profile';
 
+import { useAuth } from '../../hooks/auth';
+
 import { styles } from './styles';
 
 export const Home: React.FC = () => {
+  const { user } = useAuth();
+
   const [category, setCategory] = useState('');
 
   const navigation = useNavigation();
