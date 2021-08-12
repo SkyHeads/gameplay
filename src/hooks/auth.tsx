@@ -21,10 +21,17 @@ type User = {
 type AuthContextData = {
   user: User;
   signIn: () => void;
+  loading: boolean;
 };
 
 type AuthProviderProps = {
   children: ReactNode;
+};
+
+type AuthorizationResponse = AuthSession.AuthSessionResult & {
+  params: {
+    access_token: string;
+  };
 };
 
 const AuthContext = createContext({} as AuthContextData);
@@ -39,20 +46,33 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       const authUrl = `${api.defaults.baseURL}/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
 
-      const response = await AuthSession.startAsync({
+      const { params, type } = (await AuthSession.startAsync({
         authUrl,
-      });
+      })) as AuthorizationResponse;
 
-      console.log(response);
+      if (type === 'success') {
+        api.defaults.headers.authorization = `Bearer ${params.access_token}`;
 
-      setLoading(false);
+        const userInfo = await api.get('/users/@me');
+        const firstName = userInfo.data.username.split(' ')[0];
+        userInfo.data.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`;
+
+        setUser({
+          ...userInfo.data,
+          firstName,
+          token: params.access_token,
+        });
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
     } catch {
       throw new Error('Error in Authentication');
     }
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn }}>
+    <AuthContext.Provider value={{ user, signIn, loading }}>
       {children}
     </AuthContext.Provider>
   );
