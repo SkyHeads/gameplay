@@ -30,6 +30,7 @@
     "prettier/prettier": "error",
     "camelcase": "off",
     "no-unused-expressions": "off",
+    "react/style-prop-object": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",

@@ -1,18 +1,22 @@
 import React, { useCallback } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Alert } from 'react-native';
 
 import IllustrationImg from '../../assets/illustration.png';
 import { Background } from '../../components/Background';
 import { ButtonIcon } from '../../components/ButtonIcon';
 import { styles } from './styles';
+import { useAuth } from '../../hooks/auth';
 
 export const SignIn: React.FC = () => {
-  const navigation = useNavigation();
+  const { signIn } = useAuth();
 
-  const handleSignIn = useCallback(() => {
-    navigation.navigate('Home');
-  }, [navigation]);
+  const handleSignIn = useCallback(async () => {
+    try {
+      signIn();
+    } catch (error) {
+      Alert.alert(error);
+    }
+  }, [signIn]);
 
   return (
     <Background>
