@@ -10,7 +10,7 @@ import { AppointmentCreate } from '../screens/AppointmentCreate';
 
 const { Navigator, Screen } = createStackNavigator();
 
-export const AuthRoutes: React.FC = () => (
+export const AppRoutes: React.FC = () => (
   <Navigator
     headerMode="none"
     screenOptions={{
