@@ -62,12 +62,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           firstName,
           token: params.access_token,
         });
-        setLoading(false);
-      } else {
-        setLoading(false);
       }
     } catch {
       throw new Error('Error in Authentication');
+    } finally {
+      setLoading(false);
     }
   }
 
