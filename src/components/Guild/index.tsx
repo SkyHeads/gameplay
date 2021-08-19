@@ -26,7 +26,7 @@ type Props = TouchableOpacityProps & {
 
 export const Guild: React.FC<Props> = ({ data, ...rest }) => (
   <TouchableOpacity style={styles.container} activeOpacity={0.7} {...rest}>
-    <GuildIcon />
+    <GuildIcon guildId={data.id} iconId={data.icon} />
     <View style={styles.content}>
       <View>
         <Text style={styles.title}>{data.name}</Text>
