@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { LogBox } from 'react-native';
+// import { LogBox } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
@@ -17,9 +17,9 @@ import { AuthProvider } from './src/hooks/auth';
 
 import { Background } from './src/components/Background';
 
-LogBox.ignoreLogs([
-  'You are not currently signed in to Expo on your development machine.',
-]);
+// LogBox.ignoreLogs([
+//   'You are not currently signed in to Expo on your development machine.',
+// ]);
 
 export default function App() {
   const [fontsLoaded] = useFonts({
