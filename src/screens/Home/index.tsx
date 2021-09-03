@@ -48,9 +48,12 @@ export const Home: React.FC = () => {
     }, [loadAppointments]),
   );
 
-  const handleAppointmentDetail = useCallback(() => {
-    navigation.navigate('AppointmentDetail');
-  }, [navigation]);
+  const handleAppointmentDetail = useCallback(
+    (guildSelect: AppointmentProps) => {
+      navigation.navigate('AppointmentDetail', { guildSelect });
+    },
+    [navigation],
+  );
 
   const handleAppointmentCreate = useCallback(() => {
     navigation.navigate('AppointmentCreate');
@@ -82,7 +85,10 @@ export const Home: React.FC = () => {
             data={appointments}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-              <Appointments data={item} onPress={handleAppointmentDetail} />
+              <Appointments
+                data={item}
+                onPress={() => handleAppointmentDetail(item)}
+              />
             )}
             style={styles.matches}
             showsVerticalScrollIndicator={false}
