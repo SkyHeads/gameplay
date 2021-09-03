@@ -73,7 +73,10 @@ export const Home: React.FC = () => {
         <Load />
       ) : (
         <>
-          <ListHeader title="Partidas agendadas" subTitle="Total 6" />
+          <ListHeader
+            title="Partidas agendadas"
+            subTitle={`Total  ${appointments.length}`}
+          />
 
           <FlatList
             data={appointments}
