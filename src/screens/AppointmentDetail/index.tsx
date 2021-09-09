@@ -8,6 +8,7 @@ import {
   Platform,
   Share,
 } from 'react-native';
+import * as Linking from 'expo-linking';
 
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
@@ -73,6 +74,10 @@ export const AppointmentDetail: React.FC = () => {
     });
   }
 
+  function handleOpenGuild() {
+    Linking.openURL(widget.instant_invite);
+  }
+
   useEffect(() => {
     fetchGuildWidget();
   }, [fetchGuildWidget]);
@@ -117,12 +122,11 @@ export const AppointmentDetail: React.FC = () => {
         </>
       )}
 
-      <View style={styles.buttonFooter}>
-        <ButtonIcon
-          title="Entrar na partida"
-          onPress={() => console.log('AppointmentDetail Button')}
-        />
-      </View>
+      {guildSelect.guild.owner && (
+        <View style={styles.buttonFooter}>
+          <ButtonIcon title="Entrar na partida" onPress={handleOpenGuild} />
+        </View>
+      )}
     </Background>
   );
 };
