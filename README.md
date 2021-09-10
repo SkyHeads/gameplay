@@ -63,7 +63,7 @@ Em seguida, inicie o projeto.
 expo start
 ```
 
-Remova o bloco comentado em App.tsx para conseguir o log do Expo com a redirect uri.
+Remova o bloco comentado em App.tsx para não aparecer mais o log com a redirect uri correta, caso tenha interesse.
 
 ```cl
 LogBox.ignoreLogs(['You are not currently signed in to Expo on your development machine.']);
